@@ -52,7 +52,3 @@ input[type='text']:focus {
     font-size: 40px;
     transform: translateY(10px);
 }
-
-.hide{
-	display: none;
-}
