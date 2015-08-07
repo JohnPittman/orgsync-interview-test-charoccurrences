@@ -11,11 +11,6 @@ function init() {
         displayResults();
     });
 
-    userInput.addEventListener('focus', function(e) {
-        e.stopPropagation();
-        displayResults();
-    });
-
     displayResults();
 }
 
