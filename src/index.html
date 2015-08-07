@@ -3,15 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrgSync Interview Test - Char Occurrences</title>
+    <link rel="stylesheet" href="res/pocketgrid.css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <input type="text" id="userInput" placeholder="input" />
-    <span id="highest"></span>
-    <span id="lowest"></span>
-    <span id="tie"></span>
-    
+    <div class="content">
+        <div class="middle">
+            <input type="text" id="userInput" placeholder="word" value="example" autofocus onfocus="this.value = this.value;" />
+            <div class="char-occur-bg" id="highestDisplay">
+                <div class="char-occur-text" id="highest">
+                </div>
+                High
+            </div>
+            <div class="char-occur-bg" id="lowestDisplay">
+                <div class="char-occur-text" id="lowest">
+                </div>
+                Lowest
+            </div>
+            <div class="char-occur-bg" id="tieDisplay">
+                <div class="char-occur-text" id="tie">
+                </div>
+                Tie
+            </div>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 

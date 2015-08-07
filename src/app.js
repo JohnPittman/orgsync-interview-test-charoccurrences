@@ -3,29 +3,51 @@
 document.addEventListener('DOMContentLoaded', init());
 
 function init() {
-    document.getElementById('userInput').addEventListener('input', function() {
-        var highestEl = document.getElementById('highest');
-        var lowestEl = document.getElementById('lowest');
-        var tieEl = document.getElementById('tie');
+    var userInput = document.getElementById('userInput');
 
-        if (this.value.length > 0) {
-            var highestLowest = processInput(this.value);
+    userInput.addEventListener('input', function(e) {
+        e.stopPropagation();
 
-            if (highestLowest.highest.count === highestLowest.lowest.count) {
-                tieEl.innerHTML = highestLowest.highest.char + ':' + highestLowest.highest.count;
-                highestEl.innerHTML = '';
-                lowestEl.innerHTML = '';
-            } else {
-                highestEl.innerHTML = highestLowest.highest.char + ':' + highestLowest.highest.count;
-                lowestEl.innerHTML = highestLowest.lowest.char + ':' + highestLowest.lowest.count;
-                tieEl.innerHTML = '';
-            }
-        } else {
-            highestEl.innerHTML = '';
-            lowestEl.innerHTML = '';
-            tieEl.innerHTML = '';
-        }
+        displayResults();
     });
+
+    userInput.addEventListener('focus', function(e) {
+        e.stopPropagation();
+        displayResults();
+    });
+
+    displayResults();
+}
+
+function displayResults() {
+    var userInput = document.getElementById('userInput');
+    var highestDisplay = document.getElementById('highestDisplay');
+    var highestEl = document.getElementById('highest');
+    var lowestDisplay = document.getElementById('lowestDisplay');
+    var lowestEl = document.getElementById('lowest');
+    var tieDisplay = document.getElementById('tieDisplay');
+    var tieEl = document.getElementById('tie');
+
+    if (userInput.value.length > 0) {
+        var highestLowest = processInput(userInput.value);
+
+        if (highestLowest.highest.count === highestLowest.lowest.count) {
+            tieEl.innerHTML = highestLowest.highest.char + ':' + highestLowest.highest.count;
+            highestDisplay.style.display = 'none';
+            lowestDisplay.style.display = 'none';
+            tieDisplay.style.display = 'block';
+        } else {
+            highestEl.innerHTML = highestLowest.highest.char + ':' + highestLowest.highest.count;
+            lowestEl.innerHTML = highestLowest.lowest.char + ':' + highestLowest.lowest.count;
+            highestDisplay.style.display = 'block';
+            lowestDisplay.style.display = 'block';
+            tieDisplay.style.display = 'none';
+        }
+    } else {
+        highestDisplay.style.display = 'none';
+        lowestDisplay.style.display = 'none';
+        tieDisplay.style.display = 'none';
+    }
 }
 
 function processInput(str) {

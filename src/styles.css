@@ -1,0 +1,58 @@
+html,
+body {
+    display: table;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.middle{
+	height: 240px;
+}
+
+input[type='text'] {
+    font-family: "Arial";
+    border-bottom-color: red;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 340px;
+    min-height: 40px;
+    font-size: 40px;
+}
+
+input[type='text']:focus {
+    outline: none;
+}
+
+.char-occur-bg {
+    margin: 0 auto;
+    width: 340px;
+    text-align: center;
+    font-size: 60px;
+    color: #ECECEC;
+    font-weight: bold;
+    padding: 20px;
+    font-family: "Arial";
+}
+
+.char-occur-text {
+    color: black;
+    position: absolute;
+    text-align: center;
+    width: 340px;
+    font-size: 40px;
+    transform: translateY(10px);
+}
+
+.hide{
+	display: none;
+}
